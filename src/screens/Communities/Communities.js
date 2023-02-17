@@ -2,10 +2,12 @@ import HomeCards from '../../components/HomeCards'
 import '../../screens/ourProprties/style.css'
 import '../Communities/Communities.css'
 import '../../components/Home'
+import { Navbar } from '../../components/Navbar'
 import '../../components/HomeCards.css'
 export const Communities = () =>{
     return (
         <div className="comm-wrapper">
+        <Navbar/>
             <form className='form'>
                         <div><input type={"text"} placeholder="Street, city, or Zip"/></div>
                         <div>

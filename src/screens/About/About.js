@@ -1,11 +1,14 @@
 import '../ourProprties/style.css'
 import '../Communities/Communities.css'
 import './About.css'
+
 import AboutCards from '../../components/AboutCards'
+import { Navbar } from '../../components/Navbar'
 
 export const About = () =>{
     return (
         <div className='about-wrapper'>
+        <Navbar/>
            <div className="search-container">
                 <form className='form'>
                         <div><input type={"text"} placeholder="Street, city, or Zip"/></div>

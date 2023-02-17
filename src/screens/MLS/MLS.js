@@ -1,10 +1,12 @@
 import '../ourProprties/style.css'
 import './MLS.css'
 import Cards from '../../components/Cards'
+import { Navbar } from '../../components/Navbar'
 
 export const MLS = () =>{
     return (
         <div className='mls-wrapper'>
+        <Navbar/>
             <form className='form'>
                         <div><input type={"text"} placeholder="Street, city, or Zip"/></div>
                         <div>

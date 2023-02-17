@@ -1,15 +1,45 @@
 import React from "react";
 import {AiOutlineSearch} from 'react-icons/ai'
-import {AiFillEye} from 'react-icons/ai'
-import {FiEdit} from 'react-icons/fi'
-import {MdLocationOn} from 'react-icons/md'
-import {GiNetworkBars} from 'react-icons/gi'
-import {RiDeleteBin6Line} from 'react-icons/ri'
-import {RiStarSFill} from 'react-icons/ri'
+// import {AiFillEye} from 'react-icons/ai'
+// import {FiEdit} from 'react-icons/fi'
+// import {MdLocationOn} from 'react-icons/md'
+// import {GiNetworkBars} from 'react-icons/gi'
+// import {RiDeleteBin6Line} from 'react-icons/ri'
+// import {RiStarSFill} from 'react-icons/ri'
+import axios from 'axios'
+import MyListCard from '../Dashboardpages/MyListCard'
+import { useEffect, useState } from "react";
 
 export const Mylisting=()=>{
+
+   
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() =>{
+        fetchData();
+    }, []);
+
+  
+
+    const fetchData=  () => {
+        axios({
+            method: "GET",
+            url: 'https://francois.onrender.com/RealEstate/All',
+            // url: "https://newsapi.org/v2/everything?q=Apple&from=2023-02-03&sortBy=popularity&apiKey=48262bd238ea4e2f8885d992905f5474",
+            // url: "https://newsapi.org/v2/top-headlines?country=us&apiKey=48262bd238ea4e2f8885d992905f5474",
+
+        }).then((response) => {
+            setBlogs(response.data);
+        }).catch((error) =>{
+            console.log(error);
+        });
+        
+    };
+
+    
     return(
         <div style={{backgroundColor:"#F5F7FB",height:"100vh"}}>
+        
             <h1 style={{fontSize:"15px", padding:"20px", color:"#144273"}}>YOUR LISTINGS</h1>
             
             <hr style={{color:"lightgray",margin:"0px 20px"}}></hr>
@@ -33,7 +63,7 @@ export const Mylisting=()=>{
                     </div>
                 </div>
             </div>
-            <div style={{
+            {/* <div style={{
                 display:"flex",
                 flexDirection:"row",
                 flexWrap:"wrap",
@@ -66,7 +96,51 @@ export const Mylisting=()=>{
                         <RiDeleteBin6Line style={{color:"blue",fontSize:"16px", margin:"0px 5px",marginTop:"6%"}}/>
                     </div>
                 </div>
+            </div> */}
+            <div style={{display:"flex", flexDirection:"row",flexWrap:"wrap",gap:"2px", }} >
+                {/* <MyListCard 
+                    title="Gorgeous House For Sale"
+                    info=" 70 Bright St New York, USA"
+                /> */}
+                <MyListCard 
+                    title="Gorgeous House For Sale"
+                    info=" 70 Bright St okklahoma, USA"
+                />
+                <MyListCard 
+                    title="Gorgeous House For Sale"
+                    info=" 70 Bright St New York, USA"
+                />
+                <MyListCard 
+                    title="Gorgeous House For Sale"
+                    info=" 40 rollway St Nevada, USA"
+                />
+                <MyListCard 
+                    title="Gorgeous House For Sale"
+                    info=" 32 Bowsman St Chocago, USA"
+                />
+                <MyListCard 
+                    title="Gorgeous House For Sale"
+                    info=" 56 southgate St DC washongton, USA"
+                />
+                
+                {blogs.map((item) => {
+                
+                 <MyListCard
+                    // urlImg={item.urlToImage}
+                    title={item.title}
+                    info={item.description}
+                    />
+
+               
+    
+            }
+        )}
+                
+           
+                
+                
             </div>
+          
             
         </div>
         

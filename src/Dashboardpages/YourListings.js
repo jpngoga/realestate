@@ -8,11 +8,12 @@ import {AiOutlineCalendar} from 'react-icons/ai'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {RiMessage2Fill} from 'react-icons/ri'
 import chart from '../Dashboardpages/chart.png'
+import BubleChart from './BubleChart'
 
 
 export const YourListings=()=> {
   return (
-    <div style={{backgroundColor:"lightgray", padding:"20px"
+    <div style={{backgroundColor:"#F5F7FB", padding:"20px"
     }}><span><h1 style={{color:"dargkblue",fontSize:"18px", paddingLeft:"20px",}}>DASHBOARD</h1>
     <hr></hr>
     
@@ -57,11 +58,13 @@ export const YourListings=()=> {
         <span><h1 style={{color:"dargkblue",fontSize:"16px", padding:"20px",}}>Your Statistic</h1></span>
         
       <div>
-        <img src={chart} alt="logo" style={{padding:"5px 20px",width:"780px"}}/>
+        
+        <BubleChart/>
+
       </div>
       <span><h1 style={{color:"dargkblue",fontSize:"16px", padding:"20px",}}>Last Activities</h1></span>
 
-    <div  style={{display: "flex", flexDirection: "row", gap: "100px", backgroundColor:"white", color:"blue", border:"1px solid lightgray", padding:"0px 14px",margin:"10px",width:"760px",margin:"10px 20px"}}>
+    <div  style={{display: "flex", flexDirection: "row", gap: "100px", backgroundColor:"white", color:"blue", border:"1px solid lightgray", padding:"0px 14px",margin:"10px 20px",width:"760px",}}>
                
                 <div><AiFillCheckSquare style={{color:"blue", fontSize: "25px",marginTop:"18px",}}/></div>
                 <div>
@@ -70,7 +73,7 @@ export const YourListings=()=> {
                     
                 </div>
     </div>
-    <div  style={{display: "flex", flexDirection: "row", gap: "100px", backgroundColor:"white", color:"blue", border:"1px solid lightgray", padding:"0px 14px",margin:"10px",width:"760px",margin:"10px 20px"}}>
+    <div  style={{display: "flex", flexDirection: "row", gap: "100px", backgroundColor:"white", color:"blue", border:"1px solid lightgray", padding:"0px 14px",width:"760px",margin:"10px 20px"}}>
                
                 <div><RiMessage2Fill style={{color:"blue", fontSize: "25px",marginTop:"18px",}}/></div>
                 <div>
@@ -79,7 +82,7 @@ export const YourListings=()=> {
                     
                 </div>
     </div>
-    <div  style={{display: "flex", flexDirection: "row", gap: "100px", backgroundColor:"white", color:"blue", border:"1px solid lightgray", padding:"0px 14px",margin:"10px",width:"760px",margin:"10px 20px"}}>
+    <div  style={{display: "flex", flexDirection: "row", gap: "100px", backgroundColor:"white", color:"blue", border:"1px solid lightgray", padding:"0px 14px",width:"760px",margin:"10px 20px"}}>
                
                 <div><AiFillHeart style={{color:"blue", fontSize: "25px",marginTop:"18px",}}/></div>
                 <div>

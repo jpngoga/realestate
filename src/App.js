@@ -16,6 +16,7 @@ import { Nextpage } from "./screens/News/Nextpage";
 import { DashboardLayout } from "./layouts/dashboard";
 import { AddBlogs } from "./screens/addBlogs";
 import { useDispatch, useSelector } from "react-redux";
+import {Login} from '../src/screens/Login/Login'
 import { useEffect } from "react";
 import { token, login } from "./features/authenticationSlice";
 
@@ -26,6 +27,9 @@ import { Lostpassword } from "./screens/Login/Lostpassword";
 import { View } from "./components/View";
 import { YourListings } from "./Dashboardpages/YourListings";
 import { Mylisting } from "./Dashboardpages/Mylisting";
+import MyListCard  from "./Dashboardpages/MyListCard";
+
+import BubleChart from "./Dashboardpages/BubleChart";
 
 // import { Navbar } from "./components/Navbar";
 import {AddNew} from '../src/Dashboardpages/addNew'
@@ -35,14 +39,17 @@ function App() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   console.log(isLoggedIn, "Login Status");
-
+  // navigate('./dashboard/yourlistings')
   useEffect(() => {
     let tokenValue = localStorage.getItem("token");
-    dispatch(token(tokenValue));
+    if (tokenValue !== null){
+      dispatch(token(tokenValue));
+    }
     console.log(tokenValue, "tokenValue");
     // let userData = JSON.parse(localStorage.getItem("userData"));
-    if (tokenValue !== undefined && tokenValue !== null) {
+    if (tokenValue !== null) {
       dispatch(login());
+      console.log("nukllllllllll")
     }
   }, []);
   
@@ -51,14 +58,16 @@ function App() {
   return (
     <>
       <Routes>
-        {isLoggedIn == false ? (
+        {isLoggedIn == true ? (
           <Route path="/" element={<DashboardLayout />}>
-            <Route path="/dashboard/addBlogs" element={<AddBlogs/>} />
-            <Route path="/dashboard/addNew" element={<AddNew/>} />
+            <Route path="/dashboard/createBlog" element={<AddBlogs/>} />
+            <Route path="/dashboard/AddNew" element={<AddNew/>} />
+            <Route path="/dashboard/bublechart" element={<BubleChart/>} />
             {/* <Route path="/dashboard/about" element={<A />} /> */}
             <Route path="/dashboard/" element={<dashboard />} />
             <Route path="/dashboard/mylisting" element={<Mylisting />} />
             <Route path="/dashboard/yourlistings" element={<YourListings />} />
+            <Route path="/dashboard/MyListCard" element={<MyListCard />} />
           </Route>
         ) : (
           <>
@@ -78,6 +87,7 @@ function App() {
             <Route path="about/aboutcards" element={<AboutCards />}></Route>
             <Route path="/lostpassword" element={<Lostpassword />}></Route>
             <Route path="/ourproperties/view" element={<View />}></Route>
+            <Route path="/login" element={<Login />}></Route>
           </>
         )}
       </Routes>

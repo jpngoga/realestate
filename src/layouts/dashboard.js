@@ -12,7 +12,7 @@ import {MdPreview} from 'react-icons/md'
 export const DashboardLayout = () => {
   const navigate = useNavigate();
   useEffect(() => {
-  navigate("/dashboard/yourlistings");
+  navigate("/");
   }, []);
 
   return (
@@ -75,7 +75,7 @@ export const DashboardLayout = () => {
         </div>
 
         <div style={{borderBottom:"1px solid gray", width:"250px"}}>
-        <NavLink to="/dashboard/addBlogs" style={{textDecoration:"none"}}>
+        <NavLink to="/dashboard/createBlog" style={{textDecoration:"none"}}>
           <p style={{fontSize:14,paddingLeft:"75px"}}><ImBlogger2 style={{paddingRight:"5px",marginBottom:"-2%"}}/>Add blog</p>
         </NavLink>
         </div>
@@ -108,10 +108,19 @@ export const DashboardLayout = () => {
         </NavLink>
         </div>
         <div style={{borderBottom:"1px solid gray", width:"250px"}}>
-        <NavLink to="dashboard/addNew"style={{textDecoration:"none"}}>
+        <NavLink to="dashboard/AddNew"style={{textDecoration:"none"}}>
           <p style={{fontSize:14,paddingLeft:"75px"}}><AiOutlineTable style={{paddingRight:"5px",marginBottom:"-2%"}}/>addNew</p>
         </NavLink>
+   
         </div>
+        <div>
+              <button
+                onClick={()=>localStorage.removeItem("token")}
+                style={{ backgroundColor: "#011640",color:"white",padding:"10px 20px",margin:"12px 70px", border:"none",borderRadius:"3px"}}
+              >
+                LOG OUT
+              </button>
+          </div>
       </div>
       <div
         style={{

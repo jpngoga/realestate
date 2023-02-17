@@ -166,7 +166,7 @@ export const Home = ()=>{
        </form>
 
        <section className='bottom-section'>
-        <div cla>
+        <div>
           
           <p>You're In Good Hands</p>
           <h4>SELL YOUR PROPERTY <br></br>THROUGH BLAIR OWENS</h4>

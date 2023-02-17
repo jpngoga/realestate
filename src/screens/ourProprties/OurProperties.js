@@ -1,11 +1,13 @@
 import Cards from '../../components/Cards'
 import '../ourProprties/style.css'
 import React from 'react'
+import { Navbar } from '../../components/Navbar'
 
 export const OurProperties = () =>{
     return (
         
         <div>
+        <Navbar/>
             <div className="search-container">
                     <form className='form'>
                         <div><input type={"text"} placeholder="Street, city, or Zip"/></div>

@@ -4,6 +4,7 @@ import './News.css'
 import Services from '../../components/Services'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { Navbar } from '../../components/Navbar'
 import { useState, useEffect } from 'react'
 
 export const News= () =>{
@@ -42,6 +43,7 @@ export const News= () =>{
              
     
     <>
+    <Navbar/>
         <form className='form'>
                     <div><input type={"text"} placeholder="Email" onChange={(e) => handleEmailChange}/></div>
                     <div>
