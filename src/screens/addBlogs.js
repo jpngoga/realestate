@@ -3,6 +3,7 @@ import axios from "axios";
 import "./addBlogs.css";
 
 import { useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const AddBlogs = () => {
   const [province, setProvince] = useState("");
@@ -15,6 +16,11 @@ export const AddBlogs = () => {
   const [lotSize, setLotSize] = useState("");
   const [status, setStatus] = useState("");
   const [image, setImage] = useState("");
+
+  const navigate = useNavigate()
+
+
+
 
   const handleAddBlog = (e) => {
     e.preventDefault();
@@ -36,6 +42,7 @@ export const AddBlogs = () => {
       data: formData
     }).then((res) => {
       console.log(res);
+      navigate("/dashboard/mylisting")
     }).catch((err)=>{
       console.log(err);
     })

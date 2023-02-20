@@ -27,7 +27,6 @@ import { Lostpassword } from "./screens/Login/Lostpassword";
 import { View } from "./components/View";
 import { YourListings } from "./Dashboardpages/YourListings";
 import { Mylisting } from "./Dashboardpages/Mylisting";
-import MyListCard  from "./Dashboardpages/MyListCard";
 
 import BubleChart from "./Dashboardpages/BubleChart";
 
@@ -63,17 +62,18 @@ function App() {
             <Route path="/dashboard/createBlog" element={<AddBlogs/>} />
             <Route path="/dashboard/AddNew" element={<AddNew/>} />
             <Route path="/dashboard/bublechart" element={<BubleChart/>} />
+            <Route path="/dashboard/ourproperties" element={<OurProperties/>} />
+            <Route path="/dashboard/news" element={<News/>} />
             {/* <Route path="/dashboard/about" element={<A />} /> */}
             <Route path="/dashboard/" element={<dashboard />} />
             <Route path="/dashboard/mylisting" element={<Mylisting />} />
             <Route path="/dashboard/yourlistings" element={<YourListings />} />
-            <Route path="/dashboard/MyListCard" element={<MyListCard />} />
           </Route>
         ) : (
           <>
             {" "}
             <Route path="/" element={<Home />} />
-            <Route path="/cards" element={<Cards />} />
+           
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/mls" element={<MLS />} />
@@ -81,7 +81,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/communities" element={<Communities />} />
             <Route path="/ourproperties" element={<OurProperties />} />
-            <Route path="/homecards" element={<HomeCards />} />
+            {/* <Route path="/homecards" element={<HomeCards />} /> */}
             <Route path="news/readmore" element={<Readmore />} />
             <Route path="news/readmore/page2" element={<Nextpage />} />
             <Route path="about/aboutcards" element={<AboutCards />}></Route>

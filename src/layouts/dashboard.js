@@ -15,6 +15,10 @@ export const DashboardLayout = () => {
   navigate("/");
   }, []);
 
+  function clearLocalStorage() {
+    localStorage.clear();
+  }
+
   return (
     <div
       style={{
@@ -63,13 +67,13 @@ export const DashboardLayout = () => {
       </div>
      
       <div style={{borderBottom:"1px solid gray", width:"250px"}}>
-        <NavLink to="/dashboard/yourlistings" style={{textDecoration:"none"}}>
-          <p style={{fontSize:14,paddingLeft:"75px"}}><BsEnvelope style={{paddingRight:"5px",marginBottom:"-2%"}}/> Messages</p>
+        <NavLink to="/dashboard/news" style={{textDecoration:"none"}}>
+          <p style={{fontSize:14,paddingLeft:"75px"}}><BsEnvelope style={{paddingRight:"5px",marginBottom:"-2%"}}/> News</p>
         </NavLink>
       </div>
 
         <div style={{borderBottom:"1px solid gray", width:"250px"}}>
-        <NavLink to="/dashboard/yourlistings" style={{textDecoration:"none"}}>
+        <NavLink to="/dashboard/ourproperties" style={{textDecoration:"none"}}>
           <p style={{fontSize:14,paddingLeft:"75px"}}><IoIosPeople style={{paddingRight:"5px",marginBottom:"-2%"}}/> Agents List</p>
         </NavLink>
         </div>
@@ -115,7 +119,7 @@ export const DashboardLayout = () => {
         </div>
         <div>
               <button
-                onClick={()=>localStorage.removeItem("token")}
+                onClick={clearLocalStorage() }
                 style={{ backgroundColor: "#011640",color:"white",padding:"10px 20px",margin:"12px 70px", border:"none",borderRadius:"3px"}}
               >
                 LOG OUT

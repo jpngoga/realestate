@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 export const Mylisting=()=>{
 
    
-    const [blogs, setBlogs] = useState([]);
+    const [listings, setListings] = useState([]);
 
     useEffect(() =>{
         fetchData();
@@ -24,12 +24,12 @@ export const Mylisting=()=>{
     const fetchData=  () => {
         axios({
             method: "GET",
+            // url: 'https://servapi-2191.onrender.com/api/estates/getAll',
             url: 'https://francois.onrender.com/RealEstate/All',
-            // url: "https://newsapi.org/v2/everything?q=Apple&from=2023-02-03&sortBy=popularity&apiKey=48262bd238ea4e2f8885d992905f5474",
-            // url: "https://newsapi.org/v2/top-headlines?country=us&apiKey=48262bd238ea4e2f8885d992905f5474",
-
+         
         }).then((response) => {
-            setBlogs(response.data);
+            setListings(response.data);
+            console.log(response.data);
         }).catch((error) =>{
             console.log(error);
         });
@@ -38,7 +38,7 @@ export const Mylisting=()=>{
 
     
     return(
-        <div style={{backgroundColor:"#F5F7FB",height:"100vh"}}>
+        <div style={{backgroundColor:"#F5F7FB",height:"100%"}}>
         
             <h1 style={{fontSize:"15px", padding:"20px", color:"#144273"}}>YOUR LISTINGS</h1>
             
@@ -97,49 +97,31 @@ export const Mylisting=()=>{
                     </div>
                 </div>
             </div> */}
-            <div style={{display:"flex", flexDirection:"row",flexWrap:"wrap",gap:"2px", }} >
-                {/* <MyListCard 
-                    title="Gorgeous House For Sale"
-                    info=" 70 Bright St New York, USA"
-                /> */}
-                <MyListCard 
-                    title="Gorgeous House For Sale"
-                    info=" 70 Bright St okklahoma, USA"
-                />
-                <MyListCard 
-                    title="Gorgeous House For Sale"
-                    info=" 70 Bright St New York, USA"
-                />
-                <MyListCard 
-                    title="Gorgeous House For Sale"
-                    info=" 40 rollway St Nevada, USA"
-                />
-                <MyListCard 
-                    title="Gorgeous House For Sale"
-                    info=" 32 Bowsman St Chocago, USA"
-                />
-                <MyListCard 
-                    title="Gorgeous House For Sale"
-                    info=" 56 southgate St DC washongton, USA"
-                />
+            
+            
+                <div style={{display:"flex",flexDirection:"row", flexWrap:"wrap",gap:12,backgroundColor:"#F5F7FB"}}>
+                {listings?.map((item) => {
+                return (
                 
-                {blogs.map((item) => {
-                
-                 <MyListCard
+                 <MyListCard style={{width:"210px"}}
                     // urlImg={item.urlToImage}
-                    title={item.title}
-                    info={item.description}
+                    title={item.description}
+                    info={item.createAt}
+                    id={item._id}
+                    
                     />
-
-               
-    
+                
+                
+                )
+            
             }
         )}
+        </div>
                 
            
                 
                 
-            </div>
+           
           
             
         </div>
